@@ -1,1 +1,7 @@
 /* Empty. Add your own CSS if you like */
+
+/* Fab pbuton position override */
+.bar .button.button-fab.button-fab-top-right, 
+.button.button-fab.button-fab-top-right{
+	top:8px;
+}

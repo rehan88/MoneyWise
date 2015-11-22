@@ -1,32 +1,44 @@
-<button ng-click="showAddNewAccount()" 
-        ng-hide="hideAddNewAccountBtn" 
-        class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
 <ion-view view-title="My Accounts">
-<form id="accountFormData">
-  <ion-content>           
-    <div class="list" ng-show="addAccount">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Account Name</span>
-        <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName">
-      </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Balance</span>
-        <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
-      </label>
-    </div>    
-    <div class="row" ng-show="addAccount" ng-click="submitNewAccount()">
-      <div class="col">
-        <button class="button button-block button-positive">Add</button>
-      </div>
-    </div>    
-    <div ng-repeat="account in accounts">
-      <div class="card">
-        <div class="item item-text-wrap">
-          <b><p>{{account.accountName}}</p></b>
-          <p>£{{account.balance}}</p>
+  <form id="accountFormData">
+    <ion-content>
+
+      <div ng-hide="hideAddNewAccountBtn" class="row">
+        <div class="col col-75">
+          <h2>Accounts</h2>
+        </div>
+        <div class="col col-25">
+          <button ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
         </div>
       </div>
-    </div>        
-  </ion-content>
+
+      <div class="row">
+        <div class="col col-100">
+          <div class="list" ng-show="addAccount">
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Account Name</span>
+              <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName">
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Balance</span>
+              <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-show="addAccount" ng-click="submitNewAccount()">
+        <div class="col">
+          <button class="button button-block button-positive">Add</button>
+        </div>
+      </div>
+      
+      <div ng-repeat="account in accounts">
+        <div class="card">
+          <div class="item item-text-wrap">
+            <b><p>{{account.accountName}}</p></b>
+            <p>£{{account.balance}}</p>
+          </div>
+        </div>
+      </div>
+    </ion-content>
   </form>
 </ion-view>
