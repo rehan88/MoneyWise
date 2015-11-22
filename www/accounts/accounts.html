@@ -1,0 +1,30 @@
+<button class="button button-fab button-fab-top-left button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+<ion-view view-title="My Accounts">
+<form id="accountFormData">
+  <ion-content>           
+    <div class="list" ng-show="addAccount">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Account Name</span>
+        <input type="text" placeholder="Account Name" ng-model="accountFormData.accountname">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Balance</span>
+        <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
+      </label>
+    </div>    
+    <div class="row" ng-show="addAccount" ng-click="submitnewaccount()">
+      <div class="col">
+        <button class="button button-block button-positive">Add</button>
+      </div>
+    </div>    
+    <div ng-repeat="account in accounts">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <b><p>{{account.accountname}}</p></b>
+          <p>£{{account.balance}}</p>
+        </div>
+      </div>
+    </div>        
+  </ion-content>
+  </form>
+</ion-view>

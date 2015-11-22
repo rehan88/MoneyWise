@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Money Wise</title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+    <link href="lib/robotodraft/robotodraft.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+    <script src="js/ng-cordova.min.js"></script>   
+    <script src="js/cordova.js"></script>
+    <script src="app.js"></script>
+    
+    <script src="services/accountservice.js"></script>    
+    <!--Custom Controllers-->
+    <script src="menu/menucontroller.js"></script>
+    <script src="accounts/accountscontroller.js"></script>
+    <script src="expenses/expensescontroller.js"></script>
+    <script src="directdebits/directdebitscontroller.js"></script>
+    <script src="income/incomecontroller.js"></script>
+  </head>
+  <body ng-app="BudgetApp">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
