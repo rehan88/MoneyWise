@@ -15,24 +15,22 @@
         });
       };
 
-      $scope.showaddnewaccount = function () {
+      $scope.showAddNewAccount = function () {
         $scope.addAccount = true;
-        $scope.hideaddnewaccountbtn = true;
+        $scope.hideAddNewAccountBtn = true;
       }
 
-      $scope.submitnewaccount = function () {        
-       if($scope.accountFormData.accountname !== undefined && $scope.accountFormData.balance !== undefined){
-        $scope.newAccount = {'accountname': $scope.accountFormData.accountname, 
-                             'balance': $scope.accountFormData.balance};
+      $scope.submitNewAccount = function () {        
+       if($scope.accountFormData.accountName !== undefined && $scope.accountFormData.balance !== undefined){
+        $scope.newAccount = {'accountName': $scope.accountFormData.accountName,'balance': $scope.accountFormData.balance};
         Accounts.add($scope.newAccount);
         $scope.populateAllAccounts();
         $scope.addAccount = false;
-        $scope.hideaddnewaccountbtn = false;
-        $scope.accountFormData.accountname = '';
+        $scope.hideAddNewAccountBtn = false;
+        $scope.accountFormData.accountName = '';
         $scope.accountFormData.balance = ''; 
        }                  
       }      
-      $scope.populateAllAccounts();
-      
+      $scope.populateAllAccounts();      
     })
 })();
