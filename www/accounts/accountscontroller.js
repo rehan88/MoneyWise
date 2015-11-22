@@ -1,9 +1,9 @@
 (function () {
 
   angular.module('app.accounts', [])
-    .controller('accountscontroller', function ($scope, $ionicModal,ionicMaterialInk , ionicMaterialMotion, $timeout, $cordovaSQLite, Accounts) {
+    .controller('accountscontroller', function ($scope, $ionicModal, ionicMaterialInk, ionicMaterialMotion, $timeout, $cordovaSQLite, Accounts, ionicToast) {
 
-      ionicMaterialInk.displayEffect();  
+      ionicMaterialInk.displayEffect();
       ionicMaterialMotion.ripple()
 
       $scope.accounts = [];
@@ -20,17 +20,32 @@
         $scope.hideAddNewAccountBtn = true;
       }
 
-      $scope.submitNewAccount = function () {        
-       if($scope.accountFormData.accountName !== undefined && $scope.accountFormData.balance !== undefined){
-        $scope.newAccount = {'accountName': $scope.accountFormData.accountName,'balance': $scope.accountFormData.balance};
+      $scope.showToast = function (accountType) {
+        ionicToast.show(accountType + ' account has been added.', 'bottom', false, 2500);
+      };
+
+      $scope.showRequiredToast = function (field) {
+        ionicToast.show('Please enter' + field, 'bottom', false, 2500);
+      };
+
+      $scope.submitNewAccount = function () {
+        if ($scope.accountFormData.accountName === undefined || $scope.accountFormData.accountName === "") {
+          $scope.showRequiredToast(" an account name");
+          return false;
+        }
+        if ($scope.accountFormData.balance === undefined || $scope.accountFormData.balance === "") {
+          $scope.showRequiredToast(" a balance");
+          return false;
+        }
+        $scope.newAccount = { 'accountname': $scope.accountFormData.accountName, 'balance': $scope.accountFormData.balance };
         Accounts.add($scope.newAccount);
         $scope.populateAllAccounts();
+        $scope.showToast($scope.accountFormData.accountName);
         $scope.addAccount = false;
         $scope.hideAddNewAccountBtn = false;
         $scope.accountFormData.accountName = '';
-        $scope.accountFormData.balance = ''; 
-       }                  
-      }      
-      $scope.populateAllAccounts();      
+        $scope.accountFormData.balance = '';
+      }
+      $scope.populateAllAccounts();
     })
 })();

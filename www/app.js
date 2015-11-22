@@ -1,7 +1,7 @@
 // (function () {
   var db = null;
   
-  angular.module('BudgetApp', ['ionic','ionic-material','ngCordova', 'app.services', 'starter.controllers', 'app.accounts', 'app.expenses', 'app.directdebits', 'app.income'])
+  angular.module('BudgetApp', ['ionic','ionic-material','ngCordova', 'app.services', 'starter.controllers', 'app.accounts', 'app.expenses', 'app.directdebits', 'app.income', 'ionic-toast'])
     
     .run(function ($ionicPlatform, $cordovaSQLite) {
       $ionicPlatform.ready(function () {
