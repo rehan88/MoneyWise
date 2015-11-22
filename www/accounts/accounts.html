@@ -2,12 +2,13 @@
   <form id="accountFormData">
     <ion-content>
 
-      <div ng-hide="hideAddNewAccountBtn" class="row">
+      <div class="row headingbackground">
         <div class="col col-75">
-          <h2>Accounts</h2>
+          <h1 ng-hide="hideAddNewAccountBtn">Accounts</h1>
+          <h1 ng-show="addAccount">Add Account</h1>
         </div>
         <div class="col col-25">
-          <button ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+          <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
         </div>
       </div>
 
@@ -34,7 +35,7 @@
       <div ng-repeat="account in accounts">
         <div class="card">
           <div class="item item-text-wrap">
-            <b><p>{{account.accountName}}</p></b>
+            <b><p>{{account.accountname}}</p></b>
             <p>£{{account.balance}}</p>
           </div>
         </div>

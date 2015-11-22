@@ -73,38 +73,5 @@ angular.module('app.services', [])
     var parameters = [editAccount.id, editAccount.name, origAccount.id];
     return DBA.query("UPDATE accounts SET id = (?), accountname = (?), balance = (?) WHERE id = (?)", parameters);
   }
-
   return self;
 })
-
-// (function () {
-// 
-//   angular.module('app.accountservice', [])
-//     .controller('accountscontroller', function ($scope, $ionicModal, $timeout, $cordovaSQLite) {        
-//                       
-//      $scope.insert = function(accountname, balance) {
-//         var query = "INSERT INTO accounts (accountname, balance) VALUES (?,?)";
-//         $cordovaSQLite.execute(db, query, [accountname, balance]).then(function(res) {
-//             console.log("INSERT ID -> " + res.insertId);
-//         }, function (err) {
-//             console.error(err);
-//         });
-//       }
-//       
-//      $scope.select = function() {
-//         var query = "SELECT accountname, balance FROM accounts";
-//         $cordovaSQLite.execute(db, query).then(function(result) {
-//             if(result.rows.length > 0) {              
-//              angular.forEach(result.rows, function(account) {
-//                 $scope.accounts.push(account);                 
-//               });             
-//             } else {
-//                 console.log("No results found");
-//             }
-//         }, function (err) {
-//             console.error(err);
-//         });
-//       }
-//     
-//     })
-// })();
