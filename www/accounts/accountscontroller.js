@@ -36,6 +36,17 @@
           $scope.addAccount = false;
           $scope.hideAddNewAccountBtn = false;
       };
+      
+      $scope.onHold= function() {
+        $scope.showDeleteButton = true;
+      };
+                      
+      $scope.deleteAccount= function(account) {
+        Accounts.remove(account);
+        $scope.populateAllAccounts();
+        $scope.showDeleteButton = false;
+        $scope.showRequiredToast("Account has been deleted");
+      };
         
       $scope.submitNewAccount = function () {
         if ($scope.accountFormData.accountName === undefined || $scope.accountFormData.accountName === "") {

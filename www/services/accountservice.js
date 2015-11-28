@@ -64,8 +64,8 @@ angular.module('app.services', [])
     return DBA.query("INSERT INTO accounts (accountname, balance) VALUES (?,?)", parameters);
   }
 
-  self.remove = function(account) {
-    var parameters = [account.id];
+  self.remove = function(account) {    
+    var parameters = [account.id];    
     return DBA.query("DELETE FROM accounts WHERE id = (?)", parameters);
   }
 

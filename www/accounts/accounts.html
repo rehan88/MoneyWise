@@ -37,10 +37,11 @@
       </div>
 
       <div ng-repeat="account in accounts">
-        <div class="card" on-swipe-left="onSwipeLeft(account)">
+        <div class="card" on-swipe-left="onSwipeLeft(account)" on-hold="onHold()">
           <div class="item item-text-wrap">
             <b><p>{{account.accountname}}</p></b>
             <p>£{{account.balance}}</p>
+            <button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>
           </div>
         </div>
       </div>
