@@ -37,7 +37,7 @@
       </div>
 
       <div ng-repeat="account in accounts">
-        <div class="card" on-swipe-left="onSwipeLeft(account)" on-hold="onHold()">
+        <div class="card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
           <div class="item item-text-wrap">
             <b><p>{{account.accountname}}</p></b>
             <p>£{{account.balance}}</p>

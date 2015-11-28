@@ -37,7 +37,7 @@
           $scope.hideAddNewAccountBtn = false;
       };
       
-      $scope.onHold= function() {
+      $scope.onSwipeDown = function() {
         $scope.showDeleteButton = true;
       };
                       
