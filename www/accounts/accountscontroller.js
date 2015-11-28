@@ -1,7 +1,7 @@
 (function () {
 
   angular.module('app.accounts', [])
-    .controller('accountscontroller', function ($scope, $ionicModal, ionicMaterialInk, ionicMaterialMotion, $timeout, $cordovaSQLite, Accounts, ionicToast) {
+    .controller('accountscontroller', function ($scope,$location, $ionicModal,ionicMaterialInk, ionicMaterialMotion, $timeout, $cordovaSQLite, Accounts, ionicToast) {
 
       ionicMaterialInk.displayEffect();
       ionicMaterialMotion.ripple()
@@ -9,6 +9,10 @@
       $scope.accounts = [];
       $scope.accountFormData = {};
 
+      $scope.onSwipeLeft = function(account) {
+        $location.url("app/expenses");        
+      };  
+        
       $scope.populateAllAccounts = function () {
         Accounts.all().then(function (accounts) {
           $scope.accounts = accounts;
