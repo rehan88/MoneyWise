@@ -26,6 +26,7 @@
         
       });
     })
+    
     .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider
         .state('app', {
@@ -44,7 +45,7 @@
           }
         })
         .state('app.expenses', {
-          url: '/expenses',
+          url: '/expenses/:accountid',
           views: {
             'menuContent': {
               templateUrl: 'expenses/expenses.html',

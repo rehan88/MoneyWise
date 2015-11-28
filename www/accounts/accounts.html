@@ -12,26 +12,30 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col col-100">
-          <div class="list" ng-show="addAccount">
-            <label class="item item-input item-floating-label">
-              <span class="input-label">Account Name</span>
-              <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName">
-            </label>
-            <label class="item item-input item-floating-label">
-              <span class="input-label">Balance</span>
-              <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
-            </label>
+      <div ng-show="addAccount">
+        <div class="row">
+          <div class="col col-100">
+            <div class="list">
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Account Name</span>
+                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Balance</span>
+                <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button class="button button-block button-positive" ng-click="submitNewAccount()">Add</button>
+            <button class="button button-block button-assertive" ng-click="hideNewAccount()">Cancel</button>
           </div>
         </div>
       </div>
-      <div class="row" ng-show="addAccount" ng-click="submitNewAccount()">
-        <div class="col">
-          <button class="button button-block button-positive">Add</button>
-        </div>
-      </div>
-      
+
       <div ng-repeat="account in accounts">
         <div class="card" on-swipe-left="onSwipeLeft(account)">
           <div class="item item-text-wrap">

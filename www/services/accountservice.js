@@ -53,7 +53,7 @@ angular.module('app.services', [])
 
   self.get = function(accountId) {
     var parameters = [accountId];
-    return DBA.query("SELECT id, accountname FROM balance WHERE id = (?)", parameters)
+    return DBA.query("SELECT id, accountname, balance FROM accounts WHERE id = (?)", parameters)
       .then(function(result) {
         return DBA.getById(result);
       });

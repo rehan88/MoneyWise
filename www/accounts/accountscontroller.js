@@ -10,7 +10,7 @@
       $scope.accountFormData = {};
 
       $scope.onSwipeLeft = function(account) {
-        $location.url("app/expenses");        
+        $location.url("app/expenses/" + account.id);        
       };  
         
       $scope.populateAllAccounts = function () {
@@ -31,7 +31,12 @@
       $scope.showRequiredToast = function (field) {
         ionicToast.show('Please enter' + field, 'bottom', false, 2500);
       };
-
+        
+      $scope.hideNewAccount = function () {
+          $scope.addAccount = false;
+          $scope.hideAddNewAccountBtn = false;
+      };
+        
       $scope.submitNewAccount = function () {
         if ($scope.accountFormData.accountName === undefined || $scope.accountFormData.accountName === "") {
           $scope.showRequiredToast(" an account name");
