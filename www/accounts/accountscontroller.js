@@ -24,8 +24,13 @@
         $scope.hideAddNewAccountBtn = true;
       }
 
-      $scope.showToast = function (accountType) {
-        ionicToast.show(accountType + ' account has been added.', 'bottom', false, 2500);
+      $scope.showSubmitToast = function (accountName, toastType) {        
+        if(toastType === "success"){
+          ionicToast.show(accountName + ' account has been added.', 'bottom', false, 2500);
+        }  
+        if(toastType === "remove"){
+          ionicToast.show(accountName + ' has been removed.', 'bottom', false, 2500);
+        }                  
       };
 
       $scope.showRequiredToast = function (field) {
@@ -45,7 +50,7 @@
         Accounts.remove(account);
         $scope.populateAllAccounts();
         $scope.showDeleteButton = false;
-        $scope.showRequiredToast("Account has been deleted");
+        $scope.showSubmitToast(account.accountname, "remove");
       };
         
       $scope.submitNewAccount = function () {
@@ -60,9 +65,9 @@
         $scope.newAccount = { 'accountname': $scope.accountFormData.accountName, 'balance': $scope.accountFormData.balance };
         Accounts.add($scope.newAccount);
         $scope.populateAllAccounts();
-        $scope.showToast($scope.accountFormData.accountName);
         $scope.addAccount = false;
         $scope.hideAddNewAccountBtn = false;
+        $scope.showSubmitToast($scope.accountFormData.accountName, "success");
         $scope.accountFormData.accountName = '';
         $scope.accountFormData.balance = '';
       }

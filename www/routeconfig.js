@@ -47,5 +47,4 @@
             });;
           $urlRouterProvider.otherwise('/app/accounts');
         });
-
 })();
