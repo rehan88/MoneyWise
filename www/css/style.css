@@ -9,6 +9,11 @@
 	text-align: center;
 	font-weight: lighter;
 }
-.hovereffect:hover{
-	  background-color: yellow;
+.expensesheading{
+	background-color: #00C853;
+}
+.expensesheading h1{
+	color: white;	
+	text-align: center;
+	font-weight: lighter;
 }

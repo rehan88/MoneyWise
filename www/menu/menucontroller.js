@@ -2,10 +2,10 @@
   'use strict'
 
   angular.module('app.menu').controller('menucontroller', menucontroller);
-  menucontroller.$inject = [];
+  menucontroller.$inject = ["$scope"];
 
-  function menucontroller($scope, $ionicModal, $timeout) {
-
+  function menucontroller($scope) {
+ 
   };
 
 })();

@@ -1,26 +1,34 @@
 <ion-view view-title="Expenses">
   <ion-content on-swipe-right="onSwipeRight()">
+    
     <div class="content" on-swipe-right="onSwipeRight()">
-      <div class="row headingbackground">
+      <div class="row expensesheading">
         <div class="col col-75">
           <h1 ng-hide="hideAddNewAccountBtn">{{ accountName }}</h1>
           <h1 ng-show="addAccount">{{ accountName }}</h1>
         </div>
         <div class="col col-25">
-          <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+          <button ng-show="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
         </div>
       </div>
+      
       <div class="list">
         <label class="item item-input item-floating-label">
+          <span class="input-label">Purchase Item</span>
+          <input type="text" placeholder="Purchase Item">
+        </label>
+       <label class="item item-input item-floating-label">
           <span class="input-label">Amount spent</span>
-          <input type="text" placeholder="Amount Spent">
+          <input type="number"  placeholder="Amount Spent">
         </label>
       </div>
+      
       <div class="row">
         <div class="col">
           <button class="button button-block button-positive">Add</button>
         </div>
       </div>
+      
     </div>
   </ion-content>
 </ion-view>
