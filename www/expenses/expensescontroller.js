@@ -1,7 +1,10 @@
 (function(){
+      'use strict'
 
-angular.module('app.expenses', [])
-       .controller('expensescontroler', function($scope, $stateParams, $location, $ionicModal, $timeout, Accounts) {        
+angular.module('app.expenses').controller('expensescontroler',expensescontroler); 
+expensescontroler.$inject = ["$scope", "$stateParams", "$location", "Accounts"];
+
+function expensescontroler($scope, $stateParams, $location, Accounts) {        
       
       $scope.accountId = $stateParams.accountid;
       $scope.accountName = "";
@@ -17,5 +20,5 @@ angular.module('app.expenses', [])
       $scope.onSwipeRight = function(account) {
         $location.url("app/accounts");        
       };        
-})  
+};
 })();
