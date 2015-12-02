@@ -1,0 +1,19 @@
+/* Empty. Add your own CSS if you like */
+
+/* Fab pbuton position override */
+.headingbackground {
+	background-color: #0c63ee;
+}
+.headingbackground h1{
+	color: white;
+	text-align: center;
+	font-weight: lighter;
+}
+.expensesheading{
+	background-color: #00C853;
+}
+.expensesheading h1{
+	color: white;	
+	text-align: center;
+	font-weight: lighter;
+}
