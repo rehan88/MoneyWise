@@ -5,7 +5,8 @@ angular.module('app.expenses').controller('expensescontroler',expensescontroler)
 expensescontroler.$inject = ["$scope", "$stateParams", "$location", "Accounts"];
 
 function expensescontroler($scope, $stateParams, $location, Accounts) {        
-      
+            
+      $scope.expenseFormData = {};
       $scope.accountId = $stateParams.accountid;
       $scope.accountName = "";
       
@@ -20,5 +21,9 @@ function expensescontroler($scope, $stateParams, $location, Accounts) {
       $scope.onSwipeRight = function(account) {
         $location.url("app/accounts");        
       };        
+      
+      $scope.submitExpense = function () {
+         $scope.newExpense = { 'purchaseItem': $scope.expenseFormData.purchaseItem, 'amountSpent': $scope.expenseFormData.amountSpent };         
+      };
 };
 })();

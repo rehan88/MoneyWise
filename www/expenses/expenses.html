@@ -1,4 +1,5 @@
 <ion-view view-title="Expenses">
+  <form id="expenseFormData">
   <ion-content on-swipe-right="onSwipeRight()">
     
     <div class="content" on-swipe-right="onSwipeRight()">
@@ -15,20 +16,21 @@
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Purchase Item</span>
-          <input type="text" placeholder="Purchase Item">
+          <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem">
         </label>
        <label class="item item-input item-floating-label">
           <span class="input-label">Amount spent</span>
-          <input type="number"  placeholder="Amount Spent">
+          <input type="number"  placeholder="Amount Spent" ng-model="expenseFormData.amountSpent">
         </label>
       </div>
       
       <div class="row">
         <div class="col">
-          <button class="button button-block button-positive">Add</button>
+          <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
         </div>
       </div>
       
     </div>
   </ion-content>
+  </form>
 </ion-view>
