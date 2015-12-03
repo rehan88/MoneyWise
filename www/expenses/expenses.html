@@ -29,6 +29,18 @@
           <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
         </div>
       </div>
+     
+     <div class="content padding">
+           <h3>Expenses</h3>
+     </div>
+      <div ng-repeat="expense in expenses">             
+        <div class="card">
+          <div class="item item-text-wrap">
+            <b><p>{{expense.item}}</b> : {{expense.datespent}}</p>
+            <p>£{{expense.amountspent}}</p>            
+          </div>
+        </div>
+      </div>
       
     </div>
   </ion-content>
