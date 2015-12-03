@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module("app.accounts", ["ionic",
-									"app.services",
+									"app.accountservice",
 									"ionic-material",	  
 									"ionic-toast"
     ]);
