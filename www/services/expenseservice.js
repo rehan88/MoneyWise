@@ -39,23 +39,23 @@ angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite
   var self = this;
 
   self.all = function() {
-    return DBA.query("SELECT id, item, amountspent, datespent FROM expenses")
+    return DBA.query("SELECT id, item, amountspent, datespent, id_account FROM expenses")
       .then(function(result){
         return DBA.getAll(result);
       });
   }
 
-  self.get = function(expense) {
-    var parameters = [expense];
-    return DBA.query("SELECT id, item, amountspent, datespent FROM expenses WHERE id = (?)", parameters)
+  self.get = function(accountid) {
+    var parameters = [accountid];
+    return DBA.query("SELECT id, item, amountspent, datespent, id_account FROM expenses WHERE id = (?)", parameters)
       .then(function(result) {
         return DBA.getById(result);
       });
   }
 
   self.add = function(expense) {    
-    var parameters = [expense.item, expense.amountspent, expense.datespent];
-    return DBA.query("INSERT INTO expenses (item, amountspent, datespent) VALUES (?,?, ?)", parameters);
+    var parameters = [expense.item, expense.amountspent, expense.datespent, expense.accountid];
+    return DBA.query("INSERT INTO expenses (item, amountspent, datespent, id_account) VALUES (?,?,?,?)", parameters);
   }
 
   self.remove = function(expense) {    
@@ -65,7 +65,7 @@ angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite
 
   self.update = function(origExpense, editExpense) {
     var parameters = [editExpense.id, editExpense.name, origExpense.id];
-    return DBA.query("UPDATE expenses SET id = (?), item = (?), amountspent = (?), datespent = (?), WHERE id = (?)", parameters);
+    return DBA.query("UPDATE expenses SET id = (?), item = (?), amountspent = (?), datespent = (?), account_d = (?)WHERE id = (?)", parameters);
   }
   return self;
 })

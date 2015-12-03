@@ -18,8 +18,11 @@
             };
 
             $scope.populateAllExpenses = function () {
-                  Expenses.all().then(function (expenses) {
-                         $scope.expenses = expenses;                         
+                  Expenses.get($scope.accountId).then(function (expenses) {
+                        angular.forEach(expenses, function (expense) {
+                              $scope.expenses.push(expense);
+                        });
+                        $scope.expenses = expenses;                        
                   });
             };
 
@@ -31,7 +34,8 @@
                   $scope.newExpense = {
                         'item': $scope.expenseFormData.purchaseItem,
                         'amountspent': $scope.expenseFormData.amountSpent,
-                        'datespent': new Date().toLocaleDateString()
+                        'datespent': new Date().toLocaleDateString(),
+                        'accountid': $scope.accountId
                   };
                   Expenses.add($scope.newExpense);
                   $scope.populateAllExpenses();

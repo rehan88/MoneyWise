@@ -24,7 +24,7 @@ angular.module('BudgetApp', ['app.routeconfig',
           db = window.openDatabase("MoneyWise.db", "1.0", "Money Wise", -1);
         }    
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS accounts (id integer primary key, accountname text, balance text)");
-        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS expenses (id integer primary key, item text, amountspent text, datespent text)");
-        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS expenseslink (id integer primary key, account_id integer, expenses_id integer, FOREIGN KEY(account_id) REFERENCES accounts(id), FOREIGN KEY(expenses_id) REFERENCES expenses(id))");
+        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS expenses (id integer primary key, item text, amountspent text, datespent text, id_account integer, FOREIGN KEY(id_account) REFERENCES accounts(id))");
+        console.log("app ran");       
       });
  })    
