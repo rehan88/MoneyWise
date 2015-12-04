@@ -1,48 +1,48 @@
 <ion-view view-title="Expenses">
   <form id="expenseFormData">
-  <ion-content on-swipe-right="onSwipeRight()">
-    
-    <div class="content" on-swipe-right="onSwipeRight()">
-      <div class="row expensesheading">
-        <div class="col col-75">
-          <h1 ng-hide="hideAddNewAccountBtn">{{ accountName }}</h1>
-          <h1 ng-show="addAccount">{{ accountName }}</h1>
-        </div>
-        <div class="col col-25">
-          <button ng-show="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
-        </div>
-      </div>
-      
-      <div class="list">
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Purchase Item</span>
-          <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem">
-        </label>
-       <label class="item item-input item-floating-label">
-          <span class="input-label">Amount spent</span>
-          <input type="number"  placeholder="Amount Spent" ng-model="expenseFormData.amountSpent">
-        </label>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
-        </div>
-      </div>
-     
-     <div class="content padding">
-           <h3>Expenses</h3>
-     </div>
-      <div ng-repeat="expense in expenses">             
-        <div class="card">
-          <div class="item item-text-wrap">
-            <b><p>{{expense.item}}</b> : {{expense.datespent}}</p>
-            <p>£{{expense.amountspent}}</p>            
+    <ion-content on-swipe-right="onSwipeRight()">
+
+      <div class="content" on-swipe-right="onSwipeRight()">
+        <div class="row expensesheading">
+          <div class="col col-75">
+            <h1 ng-hide="hideAddNewAccountBtn">{{ accountName }}</h1>
+            <h1 ng-show="addAccount">{{ accountName }}</h1>
+          </div>
+          <div class="col col-25">
+            <button ng-show="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
           </div>
         </div>
+
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Purchase Item</span>
+            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Amount spent</span>
+            <input type="number" placeholder="Amount Spent" ng-model="expenseFormData.amountSpent">
+          </label>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
+          </div>
+        </div>
+
+        <div class="content padding">
+          <h3>Expenses</h3>
+        </div>
+        <div ng-repeat="spent in allExpenses">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <b><p>{{spent.item}}</b> : {{spent.datespent}}</p>
+              <p>£{{spent.amountspent}}</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      
-    </div>
-  </ion-content>
+    </ion-content>
   </form>
 </ion-view>

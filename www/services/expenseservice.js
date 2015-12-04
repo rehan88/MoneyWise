@@ -1,4 +1,7 @@
-angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite, $q, $ionicPlatform) {
+(function(){
+  'use strict'
+  
+  angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite, $q, $ionicPlatform) {
   var self = this;
   
   self.query = function (query, parameters) {
@@ -25,7 +28,6 @@ angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite
     }
     return output;
   }
-
   self.getById = function(result) {
     var output = null;
     output = angular.copy(result.rows.item(0));
@@ -47,9 +49,9 @@ angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite
 
   self.get = function(accountid) {
     var parameters = [accountid];
-    return DBA.query("SELECT id, item, amountspent, datespent, id_account FROM expenses WHERE id = (?)", parameters)
-      .then(function(result) {
-        return DBA.getById(result);
+    return DBA.query("SELECT id, item, amountspent, datespent, id_account FROM expenses WHERE id_account = (?)", parameters)
+      .then(function(result) {     
+        return DBA.getAll(result);
       });
   }
 
@@ -69,3 +71,5 @@ angular.module('app.expensesservice', []).factory('DBA', function($cordovaSQLite
   }
   return self;
 })
+  
+})();

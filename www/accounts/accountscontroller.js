@@ -65,7 +65,10 @@
         $scope.showRequiredToast(" a balance");
         return false;
       }
-      $scope.newAccount = { 'accountname': $scope.accountFormData.accountName, 'balance': $scope.accountFormData.balance };
+      $scope.newAccount = {
+        'accountname': $scope.accountFormData.accountName,
+        'balance': $scope.accountFormData.balance
+      };
       Accounts.add($scope.newAccount);
       $scope.populateAllAccounts();
       $scope.addAccount = false;
@@ -74,7 +77,7 @@
       $scope.accountFormData.accountName = '';
       $scope.accountFormData.balance = '';
     };
-    
+
     $scope.populateAllAccounts();
   }
 })();

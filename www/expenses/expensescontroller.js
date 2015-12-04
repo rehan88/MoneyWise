@@ -6,7 +6,7 @@
 
       function expensescontroler($scope, $stateParams, $location, Accounts, Expenses) {
 
-            $scope.expenses = [];
+            $scope.allExpenses = [];
             $scope.expenseFormData = {};
             $scope.accountId = $stateParams.accountid;
             $scope.accountName = "";
@@ -18,11 +18,8 @@
             };
 
             $scope.populateAllExpenses = function () {
-                  Expenses.get($scope.accountId).then(function (expenses) {
-                        angular.forEach(expenses, function (expense) {
-                              $scope.expenses.push(expense);
-                        });
-                        $scope.expenses = expenses;                        
+                  Expenses.get($scope.accountId).then(function (expenses) {                                           
+                        $scope.allExpenses = expenses;
                   });
             };
 

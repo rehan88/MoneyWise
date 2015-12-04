@@ -25,6 +25,5 @@ angular.module('BudgetApp', ['app.routeconfig',
         }    
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS accounts (id integer primary key, accountname text, balance text)");
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS expenses (id integer primary key, item text, amountspent text, datespent text, id_account integer, FOREIGN KEY(id_account) REFERENCES accounts(id))");
-        console.log("app ran");       
       });
  })    
