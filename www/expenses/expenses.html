@@ -9,11 +9,11 @@
             <h1 ng-show="addAccount">{{ accountName }}</h1>
           </div>
           <div class="col col-25">
-            <button ng-show="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
+            <button ng-show="showAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
           </div>
         </div>
 
-        <div class="list">
+        <div class="list" ng-show="hideExpneseInput">
           <label class="item item-input item-floating-label">
             <span class="input-label">Purchase Item</span>
             <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem">
@@ -24,9 +24,10 @@
           </label>
         </div>
 
-        <div class="row">
+        <div class="row" ng-show="hideExpneseInput">
           <div class="col">
             <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
+            <button class="button button-block button-assertive" ng-click="hideAddExpense()">Cancel</button>
           </div>
         </div>
 
