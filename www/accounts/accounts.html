@@ -3,13 +3,10 @@
     <ion-content>
 
       <div class="row headingbackground">
-        <div class="col col-75">
+        <div class="col col-100">
           <h1 ng-hide="hideAddNewAccountBtn">Accounts</h1>
           <h1 ng-show="addAccount">Add Account</h1>
-        </div>
-        <div class="col col-25">
-          <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-top-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
-        </div>
+        </div> 
       </div>
 
       <div ng-show="addAccount">
@@ -18,7 +15,7 @@
             <div class="list">
               <label class="item item-input item-floating-label">
                 <span class="input-label">Account Name</span>
-                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName">
+                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName"  focus-if="focusInputAccountName">
               </label>
               <label class="item item-input item-floating-label">
                 <span class="input-label">Balance</span>
@@ -39,12 +36,13 @@
       <div ng-repeat="account in accounts">
         <div class="card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
           <div class="item item-text-wrap">
-            <b><p>{{account.accountname}}</p></b>
-            <p>£{{account.balance}}</p>
+            <p><b>Account</b> : {{account.accountname}}</p>
+            <p><b>Balance</b> : £{{account.balance}}</p>
             <button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>
           </div>
         </div>
       </div>
     </ion-content>
+<button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

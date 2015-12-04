@@ -10,12 +10,12 @@
             $scope.expenseFormData = {};
             $scope.accountId = $stateParams.accountid;
             $scope.accountName = "";
-            $scope.hideExpneseInput = true;
-
+            $scope.showAddNewAccountBtn = true;
+                        
             $scope.showSubmitToast = function (toastType) {
                   if (toastType === "success") {
                         ionicToast.show('Expense added.', 'bottom', false, 2500);
-                  }   
+                  }
             };
 
             $scope.showRequiredToast = function (field) {
@@ -42,9 +42,9 @@
                   $scope.hideExpneseInput = true;
                   $scope.showAddNewAccountBtn = false;
             };
-            
-            $scope.hideAddExpense = function(){
-                   $scope.showAddNewAccountBtn = true;
+
+            $scope.hideAddExpense = function () {
+                  $scope.showAddNewAccountBtn = true;
                   $scope.hideExpneseInput = false;
             };
 

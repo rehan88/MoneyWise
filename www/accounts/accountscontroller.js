@@ -2,9 +2,9 @@
   'use strict'
 
   angular.module('app.accounts').controller('accountscontroller', accountscontroller);
-  accountscontroller.$inject = ["$scope", "$location", "ionicMaterialInk", "ionicMaterialMotion", "$cordovaSQLite", "Accounts", "ionicToast"];
+  accountscontroller.$inject = ["$scope", "$location", "$ionicActionSheet", "ionicMaterialInk", "ionicMaterialMotion", "$cordovaSQLite", "Accounts", "ionicToast"];
 
-  function accountscontroller($scope, $location, ionicMaterialInk, ionicMaterialMotion, $cordovaSQLite, Accounts, ionicToast) {
+  function accountscontroller($scope, $location, $ionicActionSheet, ionicMaterialInk, ionicMaterialMotion, $cordovaSQLite, Accounts, ionicToast) {
 
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple()
@@ -25,6 +25,7 @@
     $scope.showAddNewAccount = function () {
       $scope.addAccount = true;
       $scope.hideAddNewAccountBtn = true;
+      $scope.focusInputAccountName = true;      
     };
 
     $scope.showSubmitToast = function (accountName, toastType) {
@@ -41,6 +42,7 @@
     };
 
     $scope.hideNewAccount = function () {
+      $scope.focusInputAccountName = false;
       $scope.addAccount = false;
       $scope.hideAddNewAccountBtn = false;
     };
