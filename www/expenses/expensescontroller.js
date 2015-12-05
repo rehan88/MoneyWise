@@ -10,8 +10,9 @@
             $scope.expenseFormData = {};
             $scope.accountId = $stateParams.accountid;
             $scope.accountName = "";
+            $scope.accountDetails = {};
             $scope.showAddNewExpenseBtn = true;
-                        
+
             $scope.showSubmitToast = function (toastType) {
                   if (toastType === "success") {
                         ionicToast.show('Expense added.', 'bottom', false, 2500);
@@ -25,6 +26,7 @@
             $scope.populateAccount = function () {
                   Accounts.get($scope.accountId).then(function (account) {
                         $scope.accountName = account.accountname;
+                        $scope.accountDetails = account;
                   });
             };
 
@@ -35,7 +37,7 @@
             };
 
             $scope.onSwipeRight = function (account) {
-                  $location.url("app/accounts");
+                  $location.url("app/accounts");                  
             };
 
             $scope.showAddNewExpense = function () {
@@ -48,6 +50,12 @@
                   $scope.focusInputPurchaseItem = false;
                   $scope.showAddNewExpenseBtn = true;
                   $scope.hideExpneseInput = false;
+            };
+
+            $scope.updateBalance = function (expense) {                  
+                  $scope.oldAccountDetails = $scope.accountDetails;
+                  $scope.accountDetails.balance = $scope.accountDetails.balance - expense;
+                  Accounts.update($scope.accountDetails, $scope.oldAccountDetails);
             };
 
             $scope.submitExpense = function () {
@@ -69,6 +77,7 @@
                   $scope.populateAllExpenses();
                   $scope.hideExpneseInput = false;
                   $scope.showAddNewAccountBtn = true;
+                  $scope.updateBalance($scope.expenseFormData.amountSpent);
                   $scope.expenseFormData.purchaseItem = "";
                   $scope.expenseFormData.amountSpent = "";
                   $scope.showSubmitToast("success");

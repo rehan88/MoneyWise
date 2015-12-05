@@ -71,7 +71,9 @@
       }
 
       self.update = function (origAccount, editAccount) {
-        var parameters = [editAccount.id, editAccount.name, origAccount.id];
+        console.log(1);
+        var parameters = [editAccount.id, editAccount.accountname, editAccount.balance, origAccount.id];
+        console.log(parameters);
         return DBA.query("UPDATE accounts SET id = (?), accountname = (?), balance = (?) WHERE id = (?)", parameters);
       }
       return self;

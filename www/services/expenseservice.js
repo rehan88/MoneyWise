@@ -66,7 +66,7 @@
   }
 
   self.update = function(origExpense, editExpense) {
-    var parameters = [editExpense.id, editExpense.name, origExpense.id];
+    var parameters = [editExpense.id, editExpense.name, origExpense.id];    
     return DBA.query("UPDATE expenses SET id = (?), item = (?), amountspent = (?), datespent = (?), account_d = (?)WHERE id = (?)", parameters);
   }
   return self;
