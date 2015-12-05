@@ -13,7 +13,7 @@
         <div class="list" ng-show="hideExpneseInput">
           <label class="item item-input item-floating-label">
             <span class="input-label">Purchase Item</span>
-            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem">
+            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem"  focus-if="focusInputPurchaseItem">
           </label>
           <label class="item item-input item-floating-label">
             <span class="input-label">Amount spent</span>
@@ -23,7 +23,7 @@
 
         <div class="row" ng-show="hideExpneseInput">
           <div class="col">
-            <button ng-click="submitExpense()" class="button button-block button-positive">Add</button>
+            <button class="button button-block button-positive" ng-click="submitExpense()">Add</button>
             <button class="button button-block button-assertive" ng-click="hideAddExpense()">Cancel</button>
           </div>
         </div>
@@ -42,6 +42,6 @@
 
       </div>
     </ion-content>
-    <button ng-show="showAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
+    <button ng-show="showAddNewExpenseBtn" ng-click="showAddNewExpense()" class="button button-fab button-fab-bottom-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

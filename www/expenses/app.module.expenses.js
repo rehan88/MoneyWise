@@ -5,7 +5,8 @@
 									"app.accountservice",
 									"app.expensesservice",
 									"ionic-material",	  
-									"ionic-toast"
+									"ionic-toast",
+									"focus-if"
     ]);
 	
 })();

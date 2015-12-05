@@ -10,7 +10,7 @@
             $scope.expenseFormData = {};
             $scope.accountId = $stateParams.accountid;
             $scope.accountName = "";
-            $scope.showAddNewAccountBtn = true;
+            $scope.showAddNewExpenseBtn = true;
                         
             $scope.showSubmitToast = function (toastType) {
                   if (toastType === "success") {
@@ -38,13 +38,15 @@
                   $location.url("app/accounts");
             };
 
-            $scope.showAddNewAccount = function () {
+            $scope.showAddNewExpense = function () {
+                  $scope.focusInputPurchaseItem = true;
                   $scope.hideExpneseInput = true;
-                  $scope.showAddNewAccountBtn = false;
+                  $scope.showAddNewExpenseBtn = false;
             };
 
             $scope.hideAddExpense = function () {
-                  $scope.showAddNewAccountBtn = true;
+                  $scope.focusInputPurchaseItem = false;
+                  $scope.showAddNewExpenseBtn = true;
                   $scope.hideExpneseInput = false;
             };
 
