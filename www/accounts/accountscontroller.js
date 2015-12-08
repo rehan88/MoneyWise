@@ -9,6 +9,10 @@
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple()
 
+    $scope.$on('$ionicView.enter', function() {
+        $scope.populateAllAccounts();
+    });
+
     $scope.accounts = [];
     $scope.accountFormData = {};
 
@@ -80,6 +84,5 @@
       $scope.accountFormData.balance = '';
     };
 
-    $scope.populateAllAccounts();
   }
 })();
