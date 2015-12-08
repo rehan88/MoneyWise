@@ -1,10 +1,10 @@
-<ion-view view-title="My Accounts">
+<ion-view view-title="Accounts">
   <form id="accountFormData">
-    <ion-content>
-
-      <div class="row headingbackground">
-        <div class="col col-100">
-          <h1 ng-hide="hideAddNewAccountBtn">Accounts</h1>
+    <ion-content>            
+      
+      <div class="content has-header padding"></div>      
+      <div class="row">
+        <div class="col col-100">          
           <h1 ng-show="addAccount">Add Account</h1>
         </div> 
       </div>
@@ -43,6 +43,7 @@
         </div>
       </div>
     </ion-content>
-<button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+    
+  <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

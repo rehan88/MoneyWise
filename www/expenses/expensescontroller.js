@@ -37,22 +37,25 @@
             };
 
             $scope.onSwipeRight = function (account) {
-                  $location.url("app/accounts");                  
+                  $location.url("app/accounts");
             };
 
             $scope.showAddNewExpense = function () {
                   $scope.focusInputPurchaseItem = true;
                   $scope.hideExpneseInput = true;
                   $scope.showAddNewExpenseBtn = false;
+                  $scope.addExpense = true;
+                  $scope.hideExpenseAccountTitle = true;
             };
 
             $scope.hideAddExpense = function () {
+                  $scope.addExpense = false;
                   $scope.focusInputPurchaseItem = false;
                   $scope.showAddNewExpenseBtn = true;
                   $scope.hideExpneseInput = false;
             };
 
-            $scope.updateBalance = function (expense) {                  
+            $scope.updateBalance = function (expense) {
                   $scope.oldAccountDetails = $scope.accountDetails;
                   $scope.accountDetails.balance = $scope.accountDetails.balance - expense;
                   Accounts.update($scope.accountDetails, $scope.oldAccountDetails);

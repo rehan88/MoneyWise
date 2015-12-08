@@ -3,10 +3,11 @@
     <ion-content on-swipe-right="onSwipeRight()">
 
       <div class="content" on-swipe-right="onSwipeRight()">
-        <div class="row expensesheading">
+        <div class="content has-header padding"></div>    
+        <div class="row">
           <div class="col col-100">
-            <h1 ng-hide="hideAddNewAccountBtn">{{ accountName }}</h1>
-            <h1 ng-show="addAccount">{{ accountName }}</h1>
+            <h1 ng-show="showAddNewExpenseBtn">{{ accountName }}</h1>
+            <h1 ng-show="addExpense">Add Expense</h1>
           </div>
         </div>
 
@@ -27,10 +28,7 @@
             <button class="button button-block button-assertive" ng-click="hideAddExpense()">Cancel</button>
           </div>
         </div>
-
-        <div class="content padding">
-          <h3>Expenses</h3>
-        </div>
+                
         <div ng-repeat="spent in allExpenses">
           <div class="card">
             <div class="item item-text-wrap">
@@ -42,6 +40,6 @@
 
       </div>
     </ion-content>
-    <button ng-show="showAddNewExpenseBtn" ng-click="showAddNewExpense()" class="button button-fab button-fab-bottom-right button-positive icon ion-android-add waves-effect waves-button waves-light"></button>
+    <button ng-show="showAddNewExpenseBtn" ng-click="showAddNewExpense()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

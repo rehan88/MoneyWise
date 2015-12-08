@@ -1,11 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
 /* Fab pbuton position override */
-.headingbackground {
-	background-color: #0c63ee;
-}
-.headingbackground h1{
-	color: white;
+h1{	
 	text-align: center;
 	font-weight: lighter;
 }
