@@ -2,19 +2,43 @@
   'use strict'
 
   angular.module('app.accounts').controller('accountscontroller', accountscontroller);
-  accountscontroller.$inject = ["$scope", "$location", "$ionicActionSheet", "ionicMaterialInk", "ionicMaterialMotion", "$cordovaSQLite", "Accounts", "ionicToast"];
+  accountscontroller.$inject = ["$scope", "$ionicModal", "$location", "ionicMaterialInk", "ionicMaterialMotion", "$cordovaSQLite", "Accounts", "ionicToast"];
 
-  function accountscontroller($scope, $location, $ionicActionSheet, ionicMaterialInk, ionicMaterialMotion, $cordovaSQLite, Accounts, ionicToast) {
+  function accountscontroller($scope, $ionicModal, $location, ionicMaterialInk, ionicMaterialMotion, $cordovaSQLite, Accounts, ionicToast) {
 
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple()
 
-    $scope.$on('$ionicView.enter', function() {
-        $scope.populateAllAccounts();
+    $scope.$on('$ionicView.enter', function () {
+      $scope.populateAllAccounts();
     });
 
     $scope.accounts = [];
     $scope.accountFormData = {};
+    // 
+    //     $scope.firstLetter = function(accountName) {
+    //       alert(accountName.charAt(0));
+    //       return accountName.charAt(0);
+    //     };
+    
+    $ionicModal.fromTemplateUrl('/accounts/delete-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function () {
+      $scope.modal.show()
+    }
+
+    $scope.closeModal = function () {
+      $scope.modal.hide();
+    };
+
+    $scope.$on('$destroy', function () {
+      $scope.modal.remove();
+    });
+
 
     $scope.onSwipeLeft = function (account) {
       $location.url("app/expenses/" + account.id);
@@ -29,7 +53,7 @@
     $scope.showAddNewAccount = function () {
       $scope.addAccount = true;
       $scope.hideAddNewAccountBtn = true;
-      $scope.focusInputAccountName = true;      
+      $scope.focusInputAccountName = true;
     };
 
     $scope.showSubmitToast = function (accountName, toastType) {

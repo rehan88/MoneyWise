@@ -5,13 +5,22 @@ h1{
 	text-align: center;
 	font-weight: lighter;
 }
-.expensesheading{
-	background-color: #00BFA5;
-}
-.expensesheading h1{
-	color: white;	
-	text-align: center;
-	font-weight: lighter;
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    width: 46px;
+    height: 42px;
+    padding: 9px;
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font-size: 25px;
+    float: left;
+    /* left: 16px; */
+    position: absolute;
+    top: 8px;
+    left: 17px;
 }
 
 .fadein {

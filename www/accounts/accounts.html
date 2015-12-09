@@ -1,12 +1,12 @@
 <ion-view view-title="Accounts">
   <form id="accountFormData">
-    <ion-content>            
-      
-      <div class="content has-header padding"></div>      
+    <ion-content>
+
+      <div class="content has-header padding"></div>
       <div class="row">
-        <div class="col col-100">          
+        <div class="col col-100">
           <h1 ng-show="addAccount">Add Account</h1>
-        </div> 
+        </div>
       </div>
 
       <div ng-show="addAccount">
@@ -15,7 +15,7 @@
             <div class="list">
               <label class="item item-input item-floating-label">
                 <span class="input-label">Account Name</span>
-                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName"  focus-if="focusInputAccountName">
+                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountName" focus-if="focusInputAccountName">
               </label>
               <label class="item item-input item-floating-label">
                 <span class="input-label">Balance</span>
@@ -33,17 +33,22 @@
         </div>
       </div>
 
-      <div ng-repeat="account in accounts">
-        <div class="card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
-          <div class="item item-text-wrap">
-            <p><b>Account</b> : {{account.accountname}}</p>
-            <p><b>Balance</b> : £{{account.balance}}</p>
-            <button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>
+      <div ng-repeat="account in accounts track by account.id">
+        <div class="list card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
+          <div class="item item-avatar">
+            <div class="numberCircle">A</div>
+            <h2>{{account.accountname}}</h2>
+            <h1>£{{account.balance}}</h1>
+          </div>
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#" ng-click="modal.show()">Delete Account</a>
+            <a class="tab-item" href="#">Add Expense</a>
+                        <!--<button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>-->
           </div>
         </div>
       </div>
     </ion-content>
-    
-  <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+
+    <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

@@ -29,10 +29,11 @@
           </div>
         </div>
                 
-        <div ng-repeat="spent in allExpenses">
+        <div ng-repeat="spent in allExpenses track by spent.id | orderBy: '-datespent' ">
+        <p><b><u>{{spent.datespent}}</u></b> <br/>
           <div class="card">
             <div class="item item-text-wrap">
-              <b><p>{{spent.item}}</b> : {{spent.datespent}}</p>
+              <b><p>{{spent.item}}</b> :</p>
               <p>£{{spent.amountspent}}</p>
             </div>
           </div>
