@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div ng-repeat="account in accounts track by account.id">
+      <div ng-hide="hideAddNewAccountBtn" ng-repeat="account in accounts track by account.id">
         <div class="list card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
           <div class="positivebalance">
           <div class="item item-avatar">
@@ -42,9 +42,8 @@
             <h1>£{{account.balance}}</h1>
           </div>
           <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#" ng-click="modal.show()">Delete Account</a>
+            <a class="tab-item" href="#" ng-click="modal.show(); setId(account)">Delete Account</a>
             <a class="tab-item" href="#">Add Expense</a>
-                        <!--<button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>-->
           </div>
         </div>
         </div>

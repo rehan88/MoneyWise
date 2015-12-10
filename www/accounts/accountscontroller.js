@@ -15,30 +15,14 @@
 
     $scope.accounts = [];
     $scope.accountFormData = {};
-    // 
-    //     $scope.firstLetter = function(accountName) {
-    //       alert(accountName.charAt(0));
-    //       return accountName.charAt(0);
-    //     };
-    
-    $ionicModal.fromTemplateUrl('/accounts/delete-modal.html', {
+    $scope.accountToDelete = {};
+        
+    $ionicModal.fromTemplateUrl('/accounts/deletemodal/delete-modal.html', {
       scope: $scope,
       animation: 'slide-in-up'
-    }).then(function (modal) {
+    }).then(function (modal) {      
       $scope.modal = modal;
     });
-    $scope.openModal = function () {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function () {
-      $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function () {
-      $scope.modal.remove();
-    });
-
 
     $scope.onSwipeLeft = function (account) {
       $location.url("app/expenses/" + account.id);
@@ -63,7 +47,7 @@
       if (toastType === "remove") {
         ionicToast.show(accountName + ' has been removed.', 'bottom', false, 2500);
       }
-    };
+    };    
 
     $scope.showRequiredToast = function (field) {
       ionicToast.show('Please enter' + field, 'bottom', false, 2500);
@@ -79,11 +63,14 @@
       $scope.showDeleteButton = true;
     };
 
-    $scope.deleteAccount = function (account) {
-      Accounts.remove(account);
+    $scope.setId = function(account) {
+      $scope.accountToDelete = account;
+    };
+    
+    $scope.deleteAccount = function () {
+      Accounts.remove($scope.accountToDelete);
       $scope.populateAllAccounts();
-      $scope.showDeleteButton = false;
-      $scope.showSubmitToast(account.accountname, "remove");
+      $scope.showSubmitToast($scope.accountToDelete.accountname, "remove");
     };
 
     $scope.submitNewAccount = function () {

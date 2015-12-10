@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div ng-repeat="expensePerDate in expensesToFilter() | filter:filterExpenses">
+        <div ng-show="showAddNewExpenseBtn" ng-repeat="expensePerDate in expensesToFilter() | filter:filterExpenses">
           <h4 class="padding">{{expensePerDate.datespent}}</h4>
           <div class="card" ng-repeat="expense in allExpenses | filter:{datespent: expensePerDate.datespent}">
             <div class="item item-text-wrap">
