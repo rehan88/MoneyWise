@@ -3,7 +3,7 @@
     <ion-content on-swipe-right="onSwipeRight()">
 
       <div class="content" on-swipe-right="onSwipeRight()">
-        <div class="content has-header padding"></div>    
+        <div class="content has-header padding"></div>
         <div class="row">
           <div class="col col-100">
             <h1 ng-show="showAddNewExpenseBtn">{{ accountName }}</h1>
@@ -14,7 +14,7 @@
         <div class="list" ng-show="hideExpneseInput">
           <label class="item item-input item-floating-label">
             <span class="input-label">Purchase Item</span>
-            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem"  focus-if="focusInputPurchaseItem">
+            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem" focus-if="focusInputPurchaseItem">
           </label>
           <label class="item item-input item-floating-label">
             <span class="input-label">Amount spent</span>
@@ -28,17 +28,17 @@
             <button class="button button-block button-assertive" ng-click="hideAddExpense()">Cancel</button>
           </div>
         </div>
-                
-        <div ng-repeat="spent in allExpenses track by spent.id | orderBy: '-datespent' ">
-        <p><b><u>{{spent.datespent}}</u></b> <br/>
-          <div class="card">
+
+        <div ng-repeat="expensePerDate in expensesToFilter() | filter:filterExpenses">
+          <h4 class="padding">{{expensePerDate.datespent}}</h4>
+          <div class="card" ng-repeat="expense in allExpenses | filter:{datespent: expensePerDate.datespent}">
             <div class="item item-text-wrap">
-              <b><p>{{spent.item}}</b> :</p>
-              <p>£{{spent.amountspent}}</p>
+              <b><p>{{expense.item}}</b></p>
+              <p>£{{expense.amountspent}}</p>
             </div>
           </div>
         </div>
-
+        
       </div>
     </ion-content>
     <button ng-show="showAddNewExpenseBtn" ng-click="showAddNewExpense()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>

@@ -35,6 +35,7 @@
 
       <div ng-repeat="account in accounts track by account.id">
         <div class="list card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
+          <div class="positivebalance">
           <div class="item item-avatar">
             <div class="numberCircle">A</div>
             <h2>{{account.accountname}}</h2>
@@ -45,6 +46,7 @@
             <a class="tab-item" href="#">Add Expense</a>
                         <!--<button class="button button-block button-assertive" ng-click="deleteAccount(account)" ng-show="showDeleteButton">Delete</button>-->
           </div>
+        </div>
         </div>
       </div>
     </ion-content>

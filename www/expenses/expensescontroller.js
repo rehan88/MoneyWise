@@ -6,12 +6,26 @@
 
       function expensescontroler($scope, $stateParams, $location, Accounts, Expenses, ionicToast) {
 
-            $scope.allExpenses = [];
             $scope.expenseFormData = {};
-            $scope.accountId = $stateParams.accountid;
-            $scope.accountName = "";
             $scope.accountDetails = {};
-            $scope.showAddNewExpenseBtn = true;
+            $scope.allExpenses = [];
+            $scope.indexedExpenses = [];            
+            $scope.accountId = $stateParams.accountid;
+            $scope.accountName = "";            
+            $scope.showAddNewExpenseBtn = true;                        
+
+            $scope.expensesToFilter = function () {
+                  $scope.indexedExpenses = [];
+                  return $scope.allExpenses;
+            };
+
+            $scope.filterExpenses = function (expense) {
+                  var dateIsDifferent = $scope.indexedExpenses.indexOf(expense.datespent) == -1;
+                  if (dateIsDifferent) {
+                        $scope.indexedExpenses.push(expense.datespent);
+                  }
+                  return dateIsDifferent;
+            };
 
             $scope.showSubmitToast = function (toastType) {
                   if (toastType === "success") {
@@ -87,6 +101,6 @@
             };
 
             $scope.populateAccount();
-            $scope.populateAllExpenses();
+            $scope.populateAllExpenses();            
       };
 })();
