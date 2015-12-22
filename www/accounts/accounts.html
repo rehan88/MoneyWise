@@ -1,14 +1,12 @@
-<ion-view view-title="Accounts">
+<ion-view view-title="Accounts">  
   <form id="accountFormData">
     <ion-content>
-
       <div class="content has-header padding"></div>
       <div class="row">
         <div class="col col-100">
           <h1 ng-show="addAccount">Add Account</h1>
         </div>
       </div>
-
       <div ng-show="addAccount">
         <div class="row">
           <div class="col col-100">
@@ -24,7 +22,6 @@
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col">
             <button class="button button-block button-positive" ng-click="submitNewAccount()">Add</button>
@@ -32,7 +29,6 @@
           </div>
         </div>
       </div>
-
       <div ng-hide="hideAddNewAccountBtn" ng-repeat="account in accounts track by account.id">
         <div class="list card" on-swipe-left="onSwipeLeft(account)" on-swipe-down="onSwipeDown()">
           <div class="positivebalance">
@@ -49,7 +45,6 @@
         </div>
       </div>
     </ion-content>
-
     <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
   </form>
 </ion-view>

@@ -90,14 +90,15 @@
                         'datespent': new Date().toLocaleDateString(),
                         'accountid': $scope.accountId
                   };
-                  Expenses.add($scope.newExpense);
-                  $scope.populateAllExpenses();
+                  Expenses.add($scope.newExpense);                  
+                  $scope.addExpense = false;
+                  $scope.showAddNewExpenseBtn = true;
                   $scope.hideExpneseInput = false;
-                  $scope.showAddNewAccountBtn = true;
                   $scope.updateBalance($scope.expenseFormData.amountSpent);
                   $scope.expenseFormData.purchaseItem = "";
                   $scope.expenseFormData.amountSpent = "";
                   $scope.showSubmitToast("success");
+                  $scope.populateAllExpenses();
             };
 
             $scope.populateAccount();
