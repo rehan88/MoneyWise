@@ -56,7 +56,8 @@
   }
 
   self.add = function(expense) {    
-    var parameters = [expense.item, expense.amountspent, expense.datespent, expense.accountid];
+    var parameters = [expense.purchaseItem, expense.amountSpent, expense.datespent, expense.accountid];
+    console.log(parameters)
     return DBA.query("INSERT INTO expenses (item, amountspent, datespent, id_account) VALUES (?,?,?,?)", parameters);
   }
 
