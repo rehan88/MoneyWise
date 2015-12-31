@@ -11,12 +11,12 @@
                 <div class="list card" on-swipe-left="onSwipeLeft(account)">
                     <div class="item item-avatar">
                         <div class="numberCircle">{{account.accountname[0]}}</div>
-                        <h2>{{account.accountname}}</h2>
+                        <h2 class="account">{{account.accountname}}</h2>
                         <h1>£{{account.balance}}</h1>
                     </div>
                     <div class="item tabs tabs-secondary tabs-icon-left">
-                        <a class="tab-item" href="#" ng-click="openModal(2); setAccountToDelete(account)">Delete Account</a>
-                        <a class="tab-item" href="#">Add Expense</a>
+                        <a class="tab-item cardaction" href="#" ng-click="openModal(2); setAccountToDelete(account)">Delete Account</a>
+                        <a class="tab-item cardaction" href="#">Add Expense</a>
                     </div>
                 </div>
             </div>
