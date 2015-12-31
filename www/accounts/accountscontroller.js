@@ -18,7 +18,7 @@
             "balance": ""
         };
 
-        $ionicModal.fromTemplateUrl('/accounts/addmodal/add-modal.html', {
+        $ionicModal.fromTemplateUrl('accounts/addmodal/add-modal.html', {
             id: 1,
             scope: $scope,
             animation: 'slide-in-up'
@@ -26,7 +26,7 @@
             $scope.oModal1 = modal;
         });
 
-        $ionicModal.fromTemplateUrl('/accounts/deletemodal/delete-modal.html', {
+        $ionicModal.fromTemplateUrl('accounts/deletemodal/delete-modal.html', {
             id: 2,
             scope: $scope,
             animation: 'slide-in-up'

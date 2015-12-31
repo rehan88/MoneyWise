@@ -29,7 +29,7 @@
             'accountid': $scope.accountId
         };
 
-        $ionicModal.fromTemplateUrl('/expenses/addmodal/add-modal.html', {
+        $ionicModal.fromTemplateUrl('expenses/addmodal/add-modal.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
