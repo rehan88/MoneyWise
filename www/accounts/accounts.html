@@ -2,34 +2,7 @@
     <form id="accountFormData">
         <ion-content>
             <div class="content has-header padding"></div>
-            <div class="row">
-                <div class="col col-100">
-                    <h1 ng-show="addAccount">Add Account</h1>
-                </div>
-            </div>
-            <div ng-show="addAccount">
-                <div class="row">
-                    <div class="col col-100">
-                        <div class="list">
-                            <ion-input class="item item-input item-floating-label"">                                
-                                <ion-label>Account Name</ion-label>
-                                <input type="text" placeholder="Account Name" ng-model="accountFormData.accountname" focus-if="focusInputAccountName">
-                            </ion-input>
-                            <ion-input class="item item-input item-floating-label"">                                
-                                <ion-label>Balance</ion-label>
-                                <input type="number" placeholder="Balance" ng-model="accountFormData.balance">
-                            </ion-input>            
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button class="button button-block button-positive" ng-click="submitNewAccount()">Add</button>
-                        <button class="button button-block button-assertive" ng-click="hideNewAccount()">Cancel</button>
-                    </div>
-                </div>
-            </div>
-            <div ng-hide="hideAddNewAccountBtn" ng-repeat="account in accounts track by account.id">
+            <div ng-repeat="account in accounts track by account.id">
                 <div class="list card" on-swipe-left="onSwipeLeft(account)">
                     <div class="positivebalance">
                         <div class="item item-avatar">
@@ -38,13 +11,13 @@
                             <h1>£{{account.balance}}</h1>
                         </div>
                         <div class="item tabs tabs-secondary tabs-icon-left">
-                            <a class="tab-item" href="#" ng-click="modal.show(); setAccountToDelete(account)">Delete Account</a>
+                            <a class="tab-item" href="#" ng-click="openModal(2); setAccountToDelete(account)">Delete Account</a>
                             <a class="tab-item" href="#">Add Expense</a>
                         </div>
                     </div>
                 </div>
             </div>
         </ion-content>
-        <button ng-hide="hideAddNewAccountBtn" ng-click="showAddNewAccount()" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
+        <button ng-click="openModal(1)" class="button button-fab button-fab-bottom-right button-assertive icon ion-android-add waves-effect waves-button waves-light"></button>
     </form>
 </ion-view>

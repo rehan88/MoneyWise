@@ -5,8 +5,8 @@
 	<ion-content>
 		<div class="content has-header padding">
 		<p>Are you you want to delete this account ?</p> 
-        <button class="button button-block button-assertive" ng-click="deleteAccount(); modal.hide()">Yes</button>
-		<button class="button button-block button-positive" ng-click="modal.hide()">No</button>
+        <button class="button button-block button-assertive" ng-click="deleteAccount(); closeModal(2)">Yes</button>
+		<button class="button button-block button-positive" ng-click="closeModal(2)">No</button>
 		</div>		
 	</ion-content>
 </ion-modal-view>
