@@ -3,8 +3,7 @@
 
     angular.module("app.expenses", ["ionic",
 									"app.accountservice",
-									"app.expensesservice",
-									"ionic-material",	  
+									"app.expensesservice",										  
 									"ionic-toast",
 									"focus-if"
     ]);
