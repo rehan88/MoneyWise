@@ -109,6 +109,7 @@
                 return false;
             };
             Accounts.add($scope.accountFormData);
+            $scope.noAccounts = false;
             $scope.populateAllAccounts();
             $scope.oModal1.hide()
             $scope.showSubmitToast($scope.accountFormData.accountname, "success");

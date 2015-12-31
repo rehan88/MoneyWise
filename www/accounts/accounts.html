@@ -2,18 +2,21 @@
     <form id="accountFormData">
         <ion-content>
             <div class="content has-header padding"></div>
+            <div ng-show="noAccounts" class="card">
+                <div class="item item-text-wrap">
+                    <p>You have no accounts to view, press the plus button to add an account</p>
+                </div>
+            </div>
             <div ng-repeat="account in accounts track by account.id">
                 <div class="list card" on-swipe-left="onSwipeLeft(account)">
-                    <div class="positivebalance">
-                        <div class="item item-avatar">
-                            <div class="numberCircle">{{account.accountname[0]}}</div>
-                            <h2>{{account.accountname}}</h2>
-                            <h1>£{{account.balance}}</h1>
-                        </div>
-                        <div class="item tabs tabs-secondary tabs-icon-left">
-                            <a class="tab-item" href="#" ng-click="openModal(2); setAccountToDelete(account)">Delete Account</a>
-                            <a class="tab-item" href="#">Add Expense</a>
-                        </div>
+                    <div class="item item-avatar">
+                        <div class="numberCircle">{{account.accountname[0]}}</div>
+                        <h2>{{account.accountname}}</h2>
+                        <h1>£{{account.balance}}</h1>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#" ng-click="openModal(2); setAccountToDelete(account)">Delete Account</a>
+                        <a class="tab-item" href="#">Add Expense</a>
                     </div>
                 </div>
             </div>
