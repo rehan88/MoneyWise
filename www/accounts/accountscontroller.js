@@ -7,8 +7,7 @@
     function accountscontroller($scope, $ionicModal, $location, $cordovaSQLite, Accounts, Expenses, ionicToast) {
 
         $scope.accounts = [];
-        $scope.accountToDelete = {};
-        $scope.isNotValid = false;
+        $scope.accountToDelete = {};        
 
         $scope.$on('$ionicView.enter', function () {
             $scope.populateAllAccounts();
@@ -87,15 +86,10 @@
             $scope.showSubmitToast($scope.accountToDelete.accountname, "remove");
         };
 
-        $scope.checkFields = function (arrayToCheck) {
-            angular.forEach(arrayToCheck, function (value, key) {
-                if (value === undefined || value === "" || value === null) {
-                    $scope.showRequiredToast();
-                    $scope.isNotValid = true;
-                } else {
-                    $scope.isNotValid = false;
-                }
-            });
+        $scope.checkField = function (fieldToCheck) {
+            if (fieldToCheck === undefined || fieldToCheck === "" || fieldToCheck === null) {
+                return false;
+            }
         };
 
         $scope.cleanForm = function () {
@@ -104,10 +98,10 @@
         };
 
         $scope.submitNewAccount = function () {
-            $scope.checkFields($scope.accountFormData);
-            if ($scope.isNotValid) {
+            if ($scope.checkField($scope.accountFormData.accountname) === false || $scope.checkField($scope.accountFormData.balance) === false){
+                $scope.showRequiredToast();
                 return false;
-            };
+            }
             Accounts.add($scope.accountFormData);
             $scope.noAccounts = false;
             $scope.populateAllAccounts();

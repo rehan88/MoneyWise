@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-content>
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">Add Expense</h1>
+        </ion-header-bar>
+        <div class="content has-header">
+        <ion-input class="item item-input item-floating-label">
+            <ion-label>Purchase Item</ion-label>
+            <input type="text" placeholder="Purchase Item" ng-model="expenseFormData.purchaseItem" focus-if="focusInputPurchaseItem">
+        </ion-input>
+        <ion-input class="item item-input item-floating-label ">
+            <ion-label>Amount spent</ion-label>
+            <input type="number" placeholder="Amount Spent" ng-model="expenseFormData.amountSpent">
+        </ion-input>
+        <div class="padding">
+        <button class="button button-block button-positive" ng-click="submitExpense()">Add</button>
+        <button class="button button-block button-assertive" ng-click="Modal.hide()">Cancel</button>
+        </div>
+        </div>
+    </ion-content>
+</ion-modal-view>
