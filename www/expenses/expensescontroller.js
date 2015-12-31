@@ -6,6 +6,14 @@
 
     function expensescontroler($scope, $stateParams, $location, Accounts, Expenses, ionicToast) {
 
+        $scope.accountDetails = {};
+        $scope.allExpenses = [];
+        $scope.indexedExpenses = [];
+        $scope.accountId = $stateParams.accountid;
+        $scope.accountName = "";
+        $scope.showAddNewExpenseBtn = true;
+        $scope.todaysDate = ""; 
+
         $scope.britishDateFormat = function () {
             var date = new Date();
             var day = date.getDate();
@@ -13,14 +21,7 @@
             var year = date.getFullYear();            
             $scope.todaysDate = day + "/" + month + "/" + year;
         };
-        
-        $scope.accountDetails = {};
-        $scope.allExpenses = [];
-        $scope.indexedExpenses = [];
-        $scope.accountId = $stateParams.accountid;
-        $scope.accountName = "";
-        $scope.showAddNewExpenseBtn = true;
-        $scope.todaysDate = "";       
+              
         $scope.britishDateFormat();                
         $scope.expenseFormData = {
             'purchaseItem': "",

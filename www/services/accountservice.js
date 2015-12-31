@@ -3,8 +3,7 @@
 
   angular.module('app.accountservice', []).factory('DBA', function ($cordovaSQLite, $q, $ionicPlatform) {
     var self = this;
-
-    // Handle query's and potential errors
+        
     self.query = function (query, parameters) {
       parameters = parameters || [];
       var q = $q.defer();
@@ -21,8 +20,7 @@
       });
       return q.promise;
     }
-
-    // Proces a result set
+    
     self.getAll = function (result) {
       var output = [];
 
@@ -32,7 +30,6 @@
       return output;
     }
 
-    // Proces a single result
     self.getById = function (result) {
       var output = null;
       output = angular.copy(result.rows.item(0));
@@ -42,7 +39,7 @@
     return self;
   })
 
-    .factory('Accounts', function ($cordovaSQLite, DBA) {
+.factory('Accounts', function ($cordovaSQLite, DBA) {
       var self = this;
 
       self.all = function () {
@@ -66,12 +63,11 @@
       }
 
       self.remove = function (account) {
-        var parameters = [account.id];
+        var parameters = [account.id];        
         return DBA.query("DELETE FROM accounts WHERE id = (?)", parameters);
       }
 
-      self.update = function (origAccount, editAccount) {
-        console.log(1);
+      self.update = function (origAccount, editAccount) {    
         var parameters = [editAccount.id, editAccount.accountname, editAccount.balance, origAccount.id];
         return DBA.query("UPDATE accounts SET id = (?), accountname = (?), balance = (?) WHERE id = (?)", parameters);
       }

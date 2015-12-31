@@ -2,9 +2,9 @@
     'use strict'
 
     angular.module('app.accounts').controller('accountscontroller', accountscontroller);
-    accountscontroller.$inject = ["$scope", "$ionicModal", "$location", "$cordovaSQLite", "Accounts", "ionicToast"];
+    accountscontroller.$inject = ["$scope", "$ionicModal", "$location", "$cordovaSQLite", "Accounts", "Expenses", "ionicToast"];
 
-    function accountscontroller($scope, $ionicModal, $location, $cordovaSQLite, Accounts, ionicToast) {
+    function accountscontroller($scope, $ionicModal, $location, $cordovaSQLite, Accounts, Expenses, ionicToast) {
 
         $scope.accounts = [];
         $scope.accountToDelete = {};
@@ -31,11 +31,15 @@
         
         $scope.populateAllAccounts = function () {
             Accounts.all().then(function (accounts) {                
-                $scope.accounts = accounts;                
+                $scope.accounts = accounts;                 
+                if(accounts.length === 0){
+                   $scope.noAccounts = true;
+                }               
             });
         };
         
         $scope.showAddNewAccount = function () {
+            $scope.noAccounts = false;
             $scope.addAccount = true;
             $scope.hideAddNewAccountBtn = true;
             $scope.focusInputAccountName = true;
@@ -66,6 +70,7 @@
         
         $scope.deleteAccount = function () {
             Accounts.remove($scope.accountToDelete);
+            Expenses.removeForAccount($scope.accountToDelete);
             $scope.populateAllAccounts();
             $scope.showSubmitToast($scope.accountToDelete.accountname, "remove");
         };

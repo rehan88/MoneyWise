@@ -65,6 +65,11 @@
     var parameters = [expense.id];    
     return DBA.query("DELETE FROM expenses WHERE id = (?)", parameters);
   }
+  
+  self.removeForAccount = function(account) {    
+    var parameters = [account.id];    
+    return DBA.query("DELETE FROM expenses WHERE id_account = (?)", parameters);
+  }
 
   self.update = function(origExpense, editExpense) {
     var parameters = [editExpense.id, editExpense.name, origExpense.id];    
